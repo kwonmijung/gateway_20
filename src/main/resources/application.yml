@@ -8,30 +8,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: reservation
+        - id: order
           uri: http://localhost:8081
           predicates:
-            - Path=/reservations/** 
-        - id: inspection
+            - Path=/orders/** 
+        - id: store
           uri: http://localhost:8082
           predicates:
-            - Path=/kits/**, /inspections/**
-        - id: diagnosis
+            - Path=/stores/** 
+        - id: customer
           uri: http://localhost:8083
           predicates:
-            - Path=/diagnoses/** 
+            - Path=/customers/** /myPages/**
         - id: delivery
           uri: http://localhost:8084
           predicates:
             - Path=/deliveries/** 
-        - id: patient
+        - id: Pay
           uri: http://localhost:8085
           predicates:
-            - Path=/patients/** 
-        - id: coviddashboard
-          uri: http://localhost:8086
-          predicates:
-            - Path=/coviddashboards/**
+            - Path=/pays/** 
       globalcors:
         corsConfigurations:
           '[/**]':
@@ -51,30 +47,26 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: reservation
-          uri: http://reservation:8080
+        - id: order
+          uri: http://order:8080
           predicates:
-            - Path=/reservations/** 
-        - id: inspection
-          uri: http://inspection:8080
+            - Path=/orders/** 
+        - id: store
+          uri: http://store:8080
           predicates:
-            - Path=/kits/**, /inspections/**
-        - id: diagnosis
-          uri: http://diagnosis:8080
+            - Path=/stores/** 
+        - id: customer
+          uri: http://customer:8080
           predicates:
-            - Path=/diagnoses/** 
+            - Path=/customers/** /myPages/**
         - id: delivery
           uri: http://delivery:8080
           predicates:
             - Path=/deliveries/** 
-        - id: patient
-          uri: http://patient:8080
+        - id: Pay
+          uri: http://Pay:8080
           predicates:
-            - Path=/patients/** 
-        - id: coviddashboard
-          uri: http://coviddashboard:8080
-          predicates:
-            - Path=/coviddashboards/**
+            - Path=/pays/** 
       globalcors:
         corsConfigurations:
           '[/**]':
